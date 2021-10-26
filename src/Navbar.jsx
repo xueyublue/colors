@@ -32,13 +32,13 @@ function Navbar({ level, onLevelChange, onFormatChange }) {
       </div>
       <div className="select-container">
         <Select variant="standard" value={format} onChange={handleFormatChange}>
-          <MenuItem value="hex" key="1">
+          <MenuItem value="hex" key="hex">
             HEX - #ffffff
           </MenuItem>
-          <MenuItem value="rgb" key="2">
+          <MenuItem value="rgb" key="rgb">
             RGB - rgb(255,255,255)
           </MenuItem>
-          <MenuItem value="rgba" key="3">
+          <MenuItem value="rgba" key="rgba">
             RGBA - rgba(255,255,255,1.0)
           </MenuItem>
         </Select>
