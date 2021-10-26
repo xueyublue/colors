@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import "./Palette.css";
+import { color } from "@mui/system";
 
 function Palette({ palette }) {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 
-  const colorBoxes = palette.colors[level].map((item) => (
-    <ColorBox background={item[format]} name={item.name} key={item.name} />
+  const colorBoxes = palette.colors[level].map((color) => (
+    <ColorBox
+      moreButtonUrl={`/palette/${palette.id}/${color.id}`}
+      background={color[format]}
+      name={color.name}
+      key={color.id}
+    />
   ));
 
   return (
