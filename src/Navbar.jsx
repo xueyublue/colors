@@ -2,9 +2,12 @@ import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./Navbar.css";
-import { MenuItem, Select } from "@material-ui/core";
+import { IconButton, MenuItem, Select, Snackbar } from "@mui/material";
+import { CloseIcon } from "@mui/icons-material";
 
 function Navbar({ level, onLevelChange, format, onFormatChange }) {
+  const [snackbarOpen, setSnackbarOpen] = useState(true);
+
   return (
     <header className="Navbar">
       <div className="logo">
@@ -23,6 +26,24 @@ function Navbar({ level, onLevelChange, format, onFormatChange }) {
           <MenuItem value="rgba">RGBA - rgba(255,255,255,1.0)</MenuItem>
         </Select>
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        message={<span id="message-id">Format changed to {format}.</span>}
+        ContentProps={{ "aria-describedby": "message-id" }}
+        onClose={snackbarOpen}
+        action={[
+          <IconButton
+            onClick={() => {
+              setSnackbarOpen(false);
+            }}
+            color="inherit"
+          >
+            <CloseIcon />
+          </IconButton>,
+        ]}
+      />
     </header>
   );
 }
