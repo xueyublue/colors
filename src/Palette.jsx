@@ -16,9 +16,8 @@ function Palette({ palette }) {
       <Navbar
         level={level}
         onLevelChange={(newLevel) => setLevel(newLevel)}
-        format={format}
-        onFormatChange={(e) => {
-          setFormat(e.target.value);
+        onFormatChange={(format) => {
+          setFormat(format);
         }}
       />
       <div className="Palette-colors">{colorBoxes}</div>
