@@ -47,7 +47,7 @@ function PaletteList({ classes, palettes }) {
         </nav>
         <div className={classes.palettes}>
           {palettes.map((palette) => (
-            <MiniPalette {...palette} onClick={() => history.push(`/palette/${palette.id}`)} />
+            <MiniPalette {...palette} onClick={() => history.push(`/palette/${palette.id}`)} key={palette.id} />
           ))}
         </div>
       </div>
