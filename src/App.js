@@ -1,3 +1,4 @@
+import { disableBodyScroll } from "body-scroll-lock";
 import Palette from "./Palette";
 import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
@@ -8,6 +9,7 @@ import SingleColorPalette from "./SingleColorPalette";
 function App() {
   const findPaletteById = (id) => seedColors.find((palette) => palette.id === id);
   const generatePaletteById = (id) => generatePalette(findPaletteById(id));
+  disableBodyScroll(document);
 
   return (
     <Switch>
