@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import "./Palette.css";
 import { getShades } from "./colorHelpers";
+import Footer from "./Footer";
 
 function SingleColorPalette({ palette, colorId }) {
   const [format, setFormat] = useState("hex");
@@ -18,10 +19,7 @@ function SingleColorPalette({ palette, colorId }) {
         }}
       />
       <div className="Palette-colors">{colorBoxes}</div>
-      <footer className="Palette-footer">
-        {palette.paletteName}
-        <span className="emoji">{palette.emoji}</span>
-      </footer>
+      <Footer paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>
   );
 }
