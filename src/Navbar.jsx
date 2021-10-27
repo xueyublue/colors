@@ -24,12 +24,14 @@ function Navbar({ level, onLevelChange, onFormatChange }) {
       <div className="logo">
         <Link to="/">Color Picker</Link>
       </div>
-      <div className="slider-container">
-        <span>Level: {level}</span>
-        <div className="slider">
-          <Slider defaultValue={level} min={100} max={900} step={100} onAfterChange={onLevelChange} />
+      {level && (
+        <div className="slider-container">
+          <span>Level: {level}</span>
+          <div className="slider">
+            <Slider defaultValue={level} min={100} max={900} step={100} onAfterChange={onLevelChange} />
+          </div>
         </div>
-      </div>
+      )}
       <div className="select-container">
         <Select variant="standard" value={format} onChange={handleFormatChange}>
           <MenuItem value="hex" key="hex">

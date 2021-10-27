@@ -36,4 +36,13 @@ function getScale(hexColor, numberOfColors) {
   return chroma.scale(getRange(hexColor)).mode("lab").colors(numberOfColors);
 }
 
-export { generatePalette };
+function getShades(palette, colorId) {
+  let shades = [];
+  let allColors = palette.colors;
+  for (let key in allColors) {
+    shades = shades.concat(allColors[key].filter((color) => color.id === colorId));
+  }
+  return shades.slice(1);
+}
+
+export { generatePalette, getShades };

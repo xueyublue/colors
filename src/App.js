@@ -7,6 +7,7 @@ import SingleColorPalette from "./SingleColorPalette";
 
 function App() {
   const findPaletteById = (id) => seedColors.find((palette) => palette.id === id);
+  const generatePaletteById = (id) => generatePalette(findPaletteById(id));
 
   return (
     <Switch>
@@ -14,11 +15,15 @@ function App() {
       <Route
         exact
         path="/palette/:paletteId"
-        render={(routeProps) => (
-          <Palette palette={generatePalette(findPaletteById(routeProps.match.params.paletteId))} />
+        render={({ match }) => <Palette palette={generatePaletteById(match.params.paletteId)} />}
+      />
+      <Route
+        exact
+        path="/palette/:paletteId/:colorId"
+        render={({ match }) => (
+          <SingleColorPalette palette={generatePaletteById(match.params.paletteId)} colorId={match.params.colorId} />
         )}
       />
-      <Route exact path="/palette/:paletteId/:colorId" render={() => <SingleColorPalette />} />
     </Switch>
   );
 }

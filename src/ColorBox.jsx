@@ -28,9 +28,11 @@ function ColorBox({ moreButtonUrl, background, name }) {
           </div>
           <button className="copy-button">Copy</button>
         </div>
-        <Link to={moreButtonUrl} onClick={(e) => e.stopPropagation()}>
-          <span className="see-more">More</span>
-        </Link>
+        {moreButtonUrl && (
+          <Link to={moreButtonUrl} onClick={(e) => e.stopPropagation()}>
+            <span className="see-more">More</span>
+          </Link>
+        )}
       </div>
     </CopyToClipboard>
   );
