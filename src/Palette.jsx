@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
-import "./Palette.css";
 import Footer from "./Footer";
+import { withStyles } from "@mui/styles";
 
-function Palette({ palette }) {
+const styles = {
+  root: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+  colors: {
+    height: "90%",
+  },
+};
+
+function Palette({ classes, palette }) {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 
@@ -18,7 +29,7 @@ function Palette({ palette }) {
   ));
 
   return (
-    <div className="Palette">
+    <div className={classes.root}>
       <Navbar
         level={level}
         onLevelChange={(newLevel) => setLevel(newLevel)}
@@ -26,10 +37,10 @@ function Palette({ palette }) {
           setFormat(format);
         }}
       />
-      <div className="Palette-colors">{colorBoxes}</div>
+      <div className={classes.colors}>{colorBoxes}</div>
       <Footer paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>
   );
 }
 
-export default Palette;
+export default withStyles(styles)(Palette);
