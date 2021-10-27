@@ -16,7 +16,7 @@ function ColorBox({ classes, moreButtonUrl, background, name }) {
         }, 1500);
       }}
     >
-      <div style={{ background }} className={classes.ColorBox}>
+      <div style={{ background }} className={classes.root}>
         <div style={{ background }} className={`${classes.copyOverlay} ${copied && classes.showCopyOverlay}`} />
         <div className={`${classes.copyMsg} ${copied && classes.showCopyMsg}`}>
           <h1>Copied!</h1>
@@ -24,7 +24,7 @@ function ColorBox({ classes, moreButtonUrl, background, name }) {
         </div>
         <div>
           <div className={classes.boxContent}>
-            <span className={classes.colorName}>{name}</span>
+            <span>{name}</span>
           </div>
           <button className={classes.copyButton}>Copy</button>
         </div>

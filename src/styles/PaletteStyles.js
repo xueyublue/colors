@@ -1,4 +1,4 @@
-export default {
+const styles = {
   root: {
     height: "100vh",
     display: "flex",
@@ -37,3 +37,5 @@ export default {
     },
   },
 };
+
+export default styles;

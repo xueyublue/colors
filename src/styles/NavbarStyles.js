@@ -1,4 +1,4 @@
-export default {
+const styles = {
   root: {
     display: "flex",
     alignItems: "center",
@@ -45,3 +45,5 @@ export default {
     marginRight: "1rem",
   },
 };
+
+export default styles;

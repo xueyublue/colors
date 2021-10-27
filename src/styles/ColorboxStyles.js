@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
 
-export default {
-  ColorBox: {
+const styles = {
+  root: {
     width: "20%",
     height: ({ moreButtonUrl }) => (moreButtonUrl ? "25%" : "50%"),
     margin: "0 auto",
@@ -29,9 +29,6 @@ export default {
   },
   copiedColor: {
     color: ({ background }) => (chroma(background).luminance() >= 0.6 ? "rgba(0,0,0,0.7)" : "white"),
-  },
-  colorName: {
-    color: ({ background }) => (chroma(background).luminance() <= 0.2 ? "white" : "rgba(0,0,0,0.7)"),
   },
   copyButton: {
     color: ({ background }) => (chroma(background).luminance() >= 0.6 ? "rgba(0,0,0,0.7)" : "white"),
@@ -63,6 +60,9 @@ export default {
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",
+    "& span": {
+      color: ({ background }) => (chroma(background).luminance() <= 0.2 ? "white" : "rgba(0,0,0,0.7)"),
+    },
   },
   copyOverlay: {
     opacity: "0",
@@ -115,3 +115,5 @@ export default {
     transitionDelay: "0.3s",
   },
 };
+
+export default styles;
