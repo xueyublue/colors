@@ -3,17 +3,7 @@ import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import Footer from "./Footer";
 import { withStyles } from "@mui/styles";
-
-const styles = {
-  root: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-  colors: {
-    height: "90%",
-  },
-};
+import styles from "./styles/PaletteStyles";
 
 function Palette({ classes, palette }) {
   const [level, setLevel] = useState(500);
