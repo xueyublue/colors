@@ -20,6 +20,10 @@ export default {
     justifyContent: "space-between",
     width: "100%",
     color: "white",
+    "& a": {
+      color: "white",
+      textDecoration: "none",
+    },
   },
   palettes: {
     boxSizing: "border-box",
