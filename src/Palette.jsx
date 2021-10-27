@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import "./Palette.css";
-import { color } from "@mui/system";
 
 function Palette({ palette }) {
   const [level, setLevel] = useState(500);
